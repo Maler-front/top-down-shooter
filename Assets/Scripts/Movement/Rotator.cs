@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Rotator : MonoBehaviour
+public class Rotator 
 {
     private IDirectionController _rotatorController;
     private Transform _rotatingObject;
