@@ -8,7 +8,7 @@ public class WeaponStarter : MonoBehaviour
     [SerializeField] private Transform _shootPoint;
     [SerializeField] private GameObject _hitAnimation;
     [SerializeField] private Button _shootButton;
-    [SerializeField] private GameObject _laserEffectPrefab;
+    [SerializeField] private GameObject _shootPrefab;
 
     private void Awake()
     {
@@ -33,13 +33,12 @@ public class WeaponStarter : MonoBehaviour
         {
             case Weapons.Laser:
                 {
-
-                    new LaserWeapon(reloader, damageCalculator, _shootPoint, _hitAnimation, _shootButton, _laserEffectPrefab);
+                    new LaserWeapon(reloader, damageCalculator, _shootPoint, _hitAnimation, _shootButton, _shootPrefab);
                     break;
                 }
             case Weapons.Bullet:
                 {
-
+                    new BulletWeapon(reloader, damageCalculator, _shootPoint, _hitAnimation, _shootButton, _shootPrefab);
                     break;
                 }
         }
