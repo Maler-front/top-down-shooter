@@ -25,7 +25,7 @@ public class Rotator
             return 0f;
 
         Quaternion currentRotation = _rotatingObject.transform.rotation;
-        Quaternion targetRotation = Quaternion.Euler(0f, 0f, AngleCalculator.CalculateTargetAngle(direction));
+        Quaternion targetRotation = Quaternion.Euler(0f, 0f, AngleCalculator.CalculateTargetAngleFromDirection(direction));
         _rotatingObject.rotation = Quaternion.RotateTowards(currentRotation, targetRotation, _rotationSpeed * Time.fixedDeltaTime);
         return Quaternion.Angle(_rotatingObject.rotation, targetRotation);
     }
