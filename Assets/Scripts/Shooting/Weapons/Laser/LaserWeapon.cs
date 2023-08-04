@@ -25,8 +25,15 @@ public class LaserWeapon : Weapon
     {
         RaycastHit2D raycastInfo = Physics2D.Raycast(_shootPoint.position, _shootPoint.up, _distance);
 
-        Vector2 endPoint = raycastInfo.collider != null ? raycastInfo.point : _shootPoint.position + _shootPoint.up * _distance;
-        new LaserAnimation(Object.Instantiate(_laserEffect), _shootPoint.position, endPoint);
+        if(raycastInfo.collider != null)
+        {
+            new LaserAnimation(Object.Instantiate(_laserEffect), _shootPoint.position, raycastInfo.point);
+            HitAnimate(raycastInfo.point);
+        }
+        else
+        {
+            new LaserAnimation(Object.Instantiate(_laserEffect), _shootPoint.position, _shootPoint.position + _shootPoint.up * _distance);
+        }
 
         _weaponReloader.Reload();
     }

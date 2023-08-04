@@ -22,6 +22,12 @@ public abstract class Weapon
 
     public abstract void Shoot();
 
+    public void HitAnimate(Vector2 position)
+    {
+        var obj = GameObject.Instantiate(_hitAnimation, position, Quaternion.identity);
+        GameObject.Destroy(obj, 3f);
+    }
+
     ~Weapon()
     {
         _shootButton.onClick.RemoveListener(Shoot);

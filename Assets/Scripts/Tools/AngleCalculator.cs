@@ -10,10 +10,9 @@ public static class AngleCalculator
 
     public static Vector2 CalculateDirectionFromAngle(float angle)
     {
-        float tan = Mathf.Tan((angle + 90) * Mathf.Deg2Rad);
-        Vector2 direction = new Vector2(1f, tan);
-        Debug.Log($"{angle}, {tan}, {direction.normalized}");
-        return direction.normalized;
+        float y = Mathf.Sin(angle * Mathf.Deg2Rad);
+        float x = Mathf.Cos(angle * Mathf.Deg2Rad);
+        return new Vector2(x, y);
     }
 
     /*public static float CalculateDirection(float currentAngle, float targetAngle)

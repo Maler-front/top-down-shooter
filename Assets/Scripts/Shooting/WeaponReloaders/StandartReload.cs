@@ -15,6 +15,7 @@ public class StandartReload : WeaponReloader
         }
 
         _fireButton.interactable = true;
+        _fireButton.image.fillAmount = 1;
         _reloadCoroutine = null;
     }
 }

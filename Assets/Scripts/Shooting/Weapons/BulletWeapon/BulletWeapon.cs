@@ -26,7 +26,7 @@ public class BulletWeapon : Weapon
             Debug.LogError($"You don't have Bullet component in your bullet prefab called {bullet.name}");
             return;
         }
-        bulletComponent.Inject(_damageCalculator);
+        bulletComponent.Inject(HitAnimate, _damageCalculator);
 
         if (!bullet.TryGetComponent<Rigidbody2D>(out Rigidbody2D rigidbody))
         {
